@@ -1,0 +1,31 @@
+﻿@model List<Employee>
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>Name</th>
+        <th>Salary</th>
+        <th>Address</th>
+        <th>DepartmentID</th>
+        <th>Image</th>
+    </tr>
+    @foreach(var i in Model)
+    {
+
+        <tr>
+            <td>@i.Name</td>
+            <td>@i.Salary</td>
+            <td>@i.Address</td>
+            <td>@i.DepartmentID</td>
+            <td ><img width="30px" height="100px" class="card-img-top" src="/images/@i.Image" alt="Card image" > </td>
+        </tr>
+    }
+   
+
+</table>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_AdvancedLayout1";
+}
+<a href="/Employee/New"> New Emp</a>
+
+

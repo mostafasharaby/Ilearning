@@ -1,0 +1,53 @@
+﻿@model Demo1.Models.Instractor
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">Confirm Delete</h4>
+        </div>
+        <div class="card-body">
+            <h3>Are you sure you want to delete this instructor?</h3>
+            <div class="mb-4">
+                <h4>Instructor Details</h4>
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Name)
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.Name)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Salary)
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.Salary)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Dep_id)
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.Dep_id)
+                    </dd>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.crs_id)
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.crs_id)
+                    </dd>
+                </dl>
+            </div>
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <input type="submit" value="Delete" class="btn btn-danger" />
+                    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

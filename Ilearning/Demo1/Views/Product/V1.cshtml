@@ -1,0 +1,50 @@
+﻿<fieldset id="mo">
+    <legend> New Input Types </legend>
+    Age :
+    <input type="number" name="Age">
+    <br>
+    Color :
+    <input type="color" name="Color" title="the color feauture">
+    <br>
+    Date :
+    <input type="date" name="Date">
+    <br>
+    Time :
+    <input type="time" name="Time">
+    <br>
+    DateTime :
+    <input type="datetime" name="DateTime">
+    <br>
+    Range :
+    <input type="range" name="Range">
+    <br>
+    Month :
+    <input type="month" name="Month">
+    <br>
+    Email :
+    <input type="email" name="Email" autocomplete="on">
+    <br>
+</fieldset>
+<br>
+<style>
+    #mo {
+        color : red ;
+        background :yellow;
+    }
+</style>
+@{
+    int x = 5;
+    int y= x+10;
+}
+@x
+<h1>@y</h1>
+@if (x > y)
+{
+    <h2>  is greater </h2>
+}else if(y>x){
+    <h2> @y  is greater @x </h2>
+}
+@for(int i = 0; i < 10; i++)
+{
+    <li> @i</li>
+}

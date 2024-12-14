@@ -1,0 +1,60 @@
+﻿@model Employee
+@{
+    Layout = "_AdvancedLayout1";
+    ViewData["Title"] = "Edit";
+   // Layout ="_MyLayout"
+}
+
+<h1>Edit</h1>
+
+
+
+<form method="post" action="/Employee/saveEdite/@Model.ID" enctype="multipart/form-data">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for=Name class="form-control">
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label>Salary</label>
+        <input asp-for=Salary class="form-control">
+        <span asp-validation-for="Salary" class="text-danger"></span>
+    </div>
+    <div>
+        <label>Address</label>
+        <input asp-for=Address class="form-control">
+        <span asp-validation-for="Address" class="text-danger"></span>
+    </div>
+    <div>
+        <label>Edit Photo</label>
+        <input asp-for="Image" class="form-control" type="file" name="ImageFile">
+        <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
+  <!--  <div>
+        <label>DepartmentID</label>
+        <input type="text" name="DepartmentID" class="form-control" id="DepartmentID" value="@Model.DepartmentID">
+    </div>
+      -->
+    <label>Department</label>
+    <select name="DepartmentID" class="form-control" id="DepartmentID">
+        <!--id="DepartmentID  that in Employee-->
+        @foreach (var v in ViewBag.list)
+        {
+            <!--v.DepartmentID that in Department-->
+            @if (Model.DepartmentID == v.DepartmentID)          
+            {
+                <option value="@v.DepartmentID" selected>@v.Description</option>
+            }
+            else
+            {
+                <option value="@v.DepartmentID">@v.Description</option>
+            }           
+        }
+    </select>
+    <br>
+    <input type="submit" value="save" class="btn btn-success">
+</form>
+
+<partial name="_ScriptPartial" />

@@ -1,0 +1,59 @@
+﻿@model Course
+@{
+    Layout = "_AdvancedLayout1";
+    ViewData["Title"] = "NewCrs";
+   // SelectList selectListItems = new SelectList(ViewBag.list, "Id", "Name");
+    var action = Model.Id == 0 ? "Save" : "Edit";
+    var val = action == "Save" ? " Add" : "Update";
+}
+
+<h1>Coursera</h1>
+
+<form asp-action="@action" method="post" >
+    <div asp-validation-summary="All"></div>
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class ="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Degree" class="control-label"></label>
+        <input asp-for="Degree" class="form-control" />
+        <span asp-validation-for="Degree" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Mindegree" class="control-label"></label>
+        <input asp-for="Mindegree" class="form-control" />
+    </div>
+ @*    <div class="form-group">
+        <label asp-for="Dep_id" class="control-label"></label>
+        <input asp-for="Dep_id" class="form-control" />
+    </div> *@
+    @*<label>Department</label>
+    <select asp-items="selectListItems" class="form-control" >
+        @foreach(var c in ViewBag.list)
+        {
+            <option>@c.Name</option>
+        }
+    </select> *@
+    <label>Department</label>
+    <select name="Dep_id" class="form-control" id="Dep_id">
+        @foreach (var v in ViewBag.list)
+        {
+            @if (Model.Dep_id == v.Id)
+            {
+                <option value="@v.Id" selected>@v.Name</option>
+                //v.Id -> Departement
+            }
+            else
+            {
+                <option value="@v.Id">@v.Name</option>
+            }
+        }
+    <br>
+    <input type="submit" value= "@val" class="btn btn-success" />
+</form>
+
+<script src="@Url.Content("~/lib/jquery/dist/jquery.js")"></script>
+<script src="@Url.Content("~/lib/jquery-validation/dist/jquery.validate.min.js")"></script>
+<script src="@Url.Content("~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js")"></script>

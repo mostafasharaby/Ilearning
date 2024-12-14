@@ -1,0 +1,37 @@
+﻿<style>
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .card {
+        width: 300px;
+        color: burlywood;
+    }
+
+    .card-img-top {
+        width: 100%;
+        height: auto;
+    }
+</style>
+
+<div class="card-container">
+    @foreach (var v in Model)
+    {
+        <!--v.Name = "mo";-->
+       @*  <div class="card">
+            <img class="card-img-top" src="/images/@v.Image" alt="Card image">
+            <div class="card-body">
+                <h4 class="card-title">@v.Name</h4>
+                <h4 class="card-title">@v.Email</h4>
+                <h4 class="card-title">@v.OrderId</h4>
+                <p class="card-text">@v.Phone</p>
+                <a href="#" class="btn btn-primary">See Profile</a>
+            </div>
+        </div> *@
+        <partial name="CUSTOMER" model="v" />
+    }
+</div>
+
+@model List<Customer>

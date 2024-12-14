@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+     <div >
+        <h4 style="color:orangered ;Background:aquamarine">Header</h4>
+        @RenderSection("RenderHeader")
+     </div>
+    <div>
+        <h4 style="color:orangered ;Background:aquamarine">Menu</h4>
+        @RenderBody()
+    </div>
+    <div>
+        <h4 style="color:orangered; Background:aquamarine ">Footer</h4>
+        @RenderSection("RenderFooter" , false)
+    </div>
+   
+</body>
+</html>

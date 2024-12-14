@@ -1,0 +1,20 @@
+﻿@model FirstViewModel 
+
+
+
+@{
+    ViewData["Title"] = "testViewModel";
+}
+
+<h1>testViewModel</h1>
+<div style="color:@Model.Color">
+    @Model.Msg <br>
+    @Model.EmpId <br>
+    @Model.EmpName<br>
+    <h1><img width="100%" height="100%" class="card-img-top" src="/images/IMG_0060.JPG" alt="Card image"></h1>
+    @foreach(var v in Model.Values)
+    {
+        @v <br>
+    }
+
+</div>

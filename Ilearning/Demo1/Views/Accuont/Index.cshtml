@@ -1,0 +1,24 @@
+﻿@using System.Security.Claims;
+@{
+    var name = User.Claims.FirstOrDefault(i => i.Type == ClaimTypes.Name)?.Value;
+    var role = User.FindFirst(ClaimTypes.Role)?.Value;
+    var permission = User.FindFirst("Permission")?.Value;
+    var nameIdentitfier = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+    //var address = User.Claims.FirstOrDefault(i => i.Type == ClaimTypes.Country)?.Value;
+    var n = User.Identity.Name;
+
+
+
+    Layout = "_AdvancedLayout1";
+}
+
+<p>Name: @name</p>
+<p>Role: @role</p>
+<p>Permission: @permission</p>
+<p>nameIdentitfier: @nameIdentitfier</p>
+@* <p>Country: @address</p> *@
+<p>Name: @n</p>
+
+
+
+<partial name="_ScriptPartial" />

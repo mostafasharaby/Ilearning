@@ -1,0 +1,33 @@
+﻿@model Employee
+
+
+
+@{
+    ViewData["Title"] = "testViewData";
+}
+
+<h1>testViewData</h1>
+<h1>@Model.Name</h1>
+<h1>@Model.ID</h1>
+<h1><img width="100%" height="100%" class="card-img-top" src="/images/IMG_0060.JPG" alt="Card image"></h1>
+
+
+
+<h3> Message :@ViewData["Message"]</h3>
+<select class="form-control" style="color:@ViewData["COLOR"]">
+    @foreach (var i in (List<string>)ViewData["Result"])
+    {
+        <option>@i</option>
+    }
+</select>
+
+<select class="form-control" style="color:@ViewData["COLOR"]">
+    @foreach (var i in ViewBag.result)
+    {
+        <option>@i</option>
+    }
+</select>
+@ViewBag.Message
+@ViewBag.COLOR
+
+

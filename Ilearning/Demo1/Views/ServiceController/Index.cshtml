@@ -1,0 +1,18 @@
+﻿@using Demo1.Repository
+@inject IDepartmentRepository dptRep
+
+
+@{
+    ViewData["Title"] = "Index";
+   
+}
+
+<h1>Index</h1>
+
+<h2>@ViewBag.ID       1</h2>
+<h2>@dptRep.Guid      1</h2>
+
+<h2>@ViewBag.Greet      </h2>
+
+<environment include="Development"> this is Development </environment>
+<environment exclude="Development">  this is not Development </environment>

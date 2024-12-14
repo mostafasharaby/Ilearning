@@ -1,0 +1,24 @@
+# Visual Studio files
+.vs/
+*.sln
+*.user
+*.userosscache
+*.suo
+*.tss
+*.pdb
+*.dbmdl
+*.dbproj.schemaview
+
+# ASP.NET Core
+bin/
+obj/
+*.db
+*.db-journal
+*.bak
+*.log
+*.dSYM/
+wwwroot/lib/
+wwwroot/css/
+wwwroot/js/
+appsettings*.json
+appsettings.*.json

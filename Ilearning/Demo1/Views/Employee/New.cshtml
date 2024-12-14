@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewData["Title"] = "New";
+    Layout = "_AdvancedLayout1";
+}
+
+<h1>New</h1>
+@model Employee
+@* @Html.ActionLink("back to list","index") <br /> *@
+<a asp-action="IndexAjax">back to list</a>
+<a asp-action="Edit" asp-route-ID ="1"   asp-fragment="up">Edit</a>
+
+<form method="post" asp-action="savenew"  enctype="multipart/form-data">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    @* <form method="post" action="/Ehttp://localhost:23941/Employee/newmployee/savenew"> *@
+    <div>
+        @* pure HTML
+
+        <label>Name</label>
+        <input type="text" name="Name" class="form-control" value="@Model.Name">
+
+        ------------->HTML Helper<-------------
+        @Html.LabelFor(i=>i.Name)
+      @*   @Html.TextBox("Name", null, new { @style = "color:red", @placeholder = "Enter the name", @class = "form-control" }) 
+        @Html.EditorFor(i => i.Name)
+        @*  @Html.TextBoxFor(s=>s.Name) *@ 
+
+        @* tag helper *@
+
+        <label asp-for="Name"></label>
+        <input asp-for=Name class="form-control">
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div>
+        <label>Salary</label>
+        <input asp-for=Salary class="form-control">
+        <span asp-validation-for="Salary" class="text-danger"></span>
+    </div>
+    <div>
+        <label>Address</label>
+        <input type="text" name="Address" class="form-control" value="@Model.Address">
+        <span asp-validation-for="Address" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label>Add Photo</label>
+        <input asp-for="Image" class="form-control" type="file" name="ImageFile">
+        <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
+
+   @*  <div>
+        <label>DepartmentID</label>
+        <input type="text" name="DepartmentID" class="form-control" value="@Model.DepartmentID">
+    </div> *@
+    <label>Department</label>
+    <select id="DepartmentID" name="DepartmentID" class="form-control" value="DepartmentID">
+        @foreach (var v in ViewBag.DepartmentList)
+        {
+            <option value="@v.DepartmentID" >@v.Description</option>
+        }
+    </select>
+
+    <input type="submit" value="add" class="btn btn-success">
+</form>
+
+
+
+<!--this A partial -->
+<partial name="_ScriptPartial" />
+@*  @section Scripts{
+    <partial name="_ValidationScriptsPartial"/> 
+ } *@

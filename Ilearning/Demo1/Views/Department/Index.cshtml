@@ -1,0 +1,63 @@
+﻿@using Demo1.Repository
+@inject IDepartmentRepository dptRep
+
+
+
+@model List<Department>
+@{
+	ViewData["Title"] = "Index";
+	Layout = "_AdvancedLayout1";
+}
+
+<div style="border:RED ;background-color:black" ></div>
+
+<table class="table table-bordered table-hover" @* id="mo" *@>
+	<tr id ="mm">
+		<th >DepartmentID </th>
+		<th>Name </th>
+		<th> location</th>
+		<th> Description</th>				
+	</tr>
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td> @item.DepartmentID</td>
+			<td> @item.Name</td>
+			<td> @item.location</td>
+			<td> @item.Description</td>
+		</tr>
+
+	}
+</table>
+
+@* <style>
+	#mo{
+		background: skyblue;	
+	}
+	#mm{
+		background:red;
+	}
+</style>
+ *@
+
+
+<a href="/Department/New">New Department</a>
+
+
+
+
+
+
+
+
+
+
+
+
+@* @section RenderHeader {
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/7PTEuJwH-vk" frameborder="0" allowfullscreen></iframe>
+}
+@section RenderFooter {
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/7PTEuJwH-vk" frameborder="0" allowfullscreen></iframe>
+}
+ *@

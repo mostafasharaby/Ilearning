@@ -1,0 +1,38 @@
+﻿@model List<Course>
+@{
+   Layout = "_AdvancedLayout1";
+
+    ViewData["Title"] = "Index";
+}
+
+
+<br />
+
+<a asp-action="NewCrs" class="btn btn-primary">ADD NEW Course</a>
+
+<table class="table table-bordered table-hover mt-3 align-content-center" style="background:gray ; height:90% ; width : 90% ; " >
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Degree</th>
+            <th>Mindegree</th>
+            <th>Dep_id</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var v in Model)
+        {
+            <tr>
+                <td>@v.Name</td>
+                <td>@v.Degree</td>
+                <td>@v.Mindegree</td>
+                <td>@v.Dep_id</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@v.Id" class="btn btn-sm btn-warning">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@v.Id" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this course?');">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

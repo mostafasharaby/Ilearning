@@ -1,0 +1,14 @@
+﻿<table >
+	@foreach(var item in Model)
+	{
+	<tr>
+		@* <td> @item.Name</td>
+		<td> @item.Price</td>
+		<td> @item.Description</td>
+		<td> <img  style="width :200px" src="/images/@item.Image" ></td> *@
+			<partial name="Product_details" model="item"/>
+		@* <td> <a href="/Product/Name"> Name</a></td> *@
+	</tr>
+
+	}
+</table>

@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "AdminDashboard";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white text-center">
+            <h1 class="display-4">Welcome, Admin!</h1>
+        </div>
+        <div class="card-body">
+            <p class="lead text-center">You have access to the following administrative features:</p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <a class="btn btn-outline-primary btn-block"  asp-action="IndexAjax" asp-controller="Traniee"  >
+                        <i class="fas fa-users"></i> Manage Traniee
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a class="btn btn-outline-secondary btn-block" asp-action="index" asp-controller="Instractor">
+                        <i class="fas fa-book"></i> Manage Instructors
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a class="btn btn-outline-secondary btn-block" asp-action="index" asp-controller="Departments">
+                        <i class="fas fa-book"></i> Manage Departments
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a class="btn btn-outline-secondary btn-block" asp-action="index" asp-controller="Course">
+                        <i class="fas fa-book"></i> Manage Courses
+                    </a>
+                </li>
+
+                <li class="list-group-item">
+                    <a class="btn btn-outline-success btn-block" asp-action="ViewReports">
+                        <i class="fas fa-chart-line"></i> View Reports
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+

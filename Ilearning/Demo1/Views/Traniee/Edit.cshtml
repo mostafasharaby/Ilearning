@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "_AdvancedLayout1";
+}
+
+<h1>Edit</h1>
+
+@model Traniee
+
+<form method="post" action="/Traniee/saveEdite/@Model.Id" enctype="multipart/form-data">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for=Name class="form-control">
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label>Degree</label>
+        <input asp-for=Degree class="form-control">
+        <span asp-validation-for="Degree" class="text-danger"></span>
+    </div>
+    <div>
+        <label>Address</label>
+        <input asp-for=Address class="form-control">
+        <span asp-validation-for="Address" class="text-danger"></span>
+    </div>
+    <div>
+        <label>Edit Photo</label>
+        <input asp-for="Image" class="form-control" type="file" name="ImageFile">
+        <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
+    <div>
+        <label>Grade</label>
+        <input asp-for=Grade class="form-control">
+        <span asp-validation-for="Grade" class="text-danger"></span>
+    </div>
+ 
+    <label>Department</label>
+    <select name="Dep_id" class="form-control" id="Dep_id">
+        <!--id="dep_id  that in traniee-->
+        @foreach (var v in ViewBag.list)
+        {
+            <!--v.departmentid that in department-->
+            @if (Model.Dep_id == v.Id)
+            {
+                <option value="@v.Id" selected>@v.Name</option>
+            }
+            else
+            {
+                <option value="@v.Id">@v.Name</option>
+            }
+        }
+    </select>
+    <br>
+    <input type="submit" value="save" class="btn btn-success">
+</form>
+
+<partial name="_ScriptPartial"/>

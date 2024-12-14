@@ -1,0 +1,47 @@
+﻿@model Demo1.Models.Instractor
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container mt-4">
+    <h1 class="mb-4">Instructor Details</h1>
+
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">Instructor Information</h4>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Salary)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Salary)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Dep_id)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Dep_id)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.crs_id)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.crs_id)
+                </dd>
+            </dl>
+        </div>
+        <div class="card-footer">
+            <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Edit</a>
+            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+        </div>
+    </div>
+</div>

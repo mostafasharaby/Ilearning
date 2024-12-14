@@ -1,0 +1,78 @@
+﻿<div id="mo" class="card birthday-card" style="width: 500px;height: 500px;">
+    <img class="card-img-top" src="/images/@Model.Image" alt="Card image" style="height: 300px">
+    <div class="card-img-overlay d-flex flex-column justify-content-end">
+        <h5 class="card-title">Name: @Model.Name</h5>
+        <h5 class="card-title">ID: @Model.ID</h5>
+        <h5 class="card-title">Salary: @Model.Salary</h5>
+        <p class="card-text">DepartmentID: @Model.DepartmentID</p>
+        <div class="button-group"> 
+            <a href="Edit/@Model.ID" class="btn btn-primary btn-birthday">Edit</a>
+            <a href="/Employee/Delete/@Model.ID" class="btn btn-secondary btn-birthday" onclick="return confirm('Are you sure you want to delete this employee?');">Delete</a>            
+        </div>
+    </div>
+</div>
+
+<style>
+    #mo {
+        color: burlywood;
+        border: 2px solid gold;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+        background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+    }
+
+        #mo:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+
+    .card-img-top {
+        height: 200px;
+        object-fit: cover;
+        border-bottom: 2px solid gold;
+    }
+
+    .card-img-overlay {
+      /*   background: rgba(255, 255, 255, 0.8); */
+        padding: 10px;
+        border-radius: 0 0 15px 15px;
+    }
+
+    .card-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #333;
+        text-shadow: 1px 1px 2px #fff;
+    }
+
+    .card-text {
+        font-size: 1rem;
+        color: #666;
+    }
+
+    .btn-birthday {
+        /* background-color: #f06c64; */
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 1rem;
+        margin-top: 10px;
+        transition: 0.3s;
+    }
+
+        .btn-birthday:hover {
+           /*  background-color: #ff9a9e; */
+            color: #fff;
+        }
+
+    .birthday-card {
+        background-image: url('/images/your-birthday-background.jpg'); /* Replace with your birthday background image */
+        background-size: cover;
+    }
+</style>
+
+        @model Employee

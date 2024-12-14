@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewData["Title"] = "New";
+    Layout = "_AdvancedLayout1";
+}
+
+<h1>New</h1>
+@model Traniee
+
+
+<a asp-action="IndexAjax">back to list</a>
+<a asp-action="Edit" asp-route-ID="1" asp-fragment="up">Edit</a>
+
+<form method="post" asp-action="savenew" enctype="multipart/form-data">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for=Name class="form-control">
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label>Degree</label>
+        <input asp-for=Degree class="form-control">
+        <span asp-validation-for="Degree" class="text-danger"></span>
+    </div>
+    <div>
+        <label>Address</label>
+        <input asp-for=Address class="form-control">
+        <span asp-validation-for="Address" class="text-danger"></span>
+    </div>
+    <div>
+        <label>Edit Photo</label>
+        <input asp-for="Image" class="form-control" type="file" name="ImageFile">
+        <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
+    <div>
+        <label>Grade</label>
+        <input asp-for=Grade class="form-control">
+        <span asp-validation-for="Grade" class="text-danger"></span>
+    </div>
+
+    <label>Department</label>
+    <select name="Dep_id" class="form-control" id="Dep_id">
+        <!--id="Dep_id  that in Traniee-->
+        @foreach (var v in ViewBag.list)
+        {
+            <!--v.DepartmentID that in Department-->
+            @if (Model.Dep_id == v.Id)
+            {
+                <option value="@v.Id" selected>@v.Name</option>
+            }
+            else
+            {
+                <option value="@v.Id">@v.Name</option>
+            }
+        }
+        </select>
+    <input type="submit" value="add" class="btn btn-success">
+</form>
+
+
+
+<!--this A partial -->
+<partial name="_ScriptPartial" />

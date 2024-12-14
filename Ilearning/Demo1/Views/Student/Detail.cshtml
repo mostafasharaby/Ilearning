@@ -1,0 +1,106 @@
+﻿
+@{
+    ViewData["Title"] = "Detail";
+}
+
+
+@model Traniee
+
+
+<div id="mo" class="card birthday-card" style="width: 300px; height:450px;" >
+    @if (Model.Image != null)
+    {
+        <img class="card-img-top" src="/images/@(Model.Image)" alt="Card image">
+    }
+    else
+    {
+        <img class="card-img-top" src="/images/default.jpg" alt="Default image" >
+    }
+    <div class="card-img-overlay d-flex flex-column justify-content-end">
+        <h5 class="card-title">Name: @Model.Name</h5>
+        <h5 class="card-title">Address: @(Model.Address ?? "N/A")</h5>
+        @if (Model.Degree <50){
+            <h5 id="vmm" class="card-title">Degree: @(Model.Degree.HasValue ? Model.Degree.ToString() : "N/A")</h5>
+        }
+        else
+        {
+            <h5 id="mmm" color="Green" class="card-title">Degree: @(Model.Degree.HasValue ? Model.Degree.ToString() : "N/A")</h5>
+        }
+        <h5 class="card-title">Dep_id: @Model.Dep_id</h5>
+        <h5 class="card-text">Grade: @(Model.Grade.HasValue ? Model.Grade.ToString() : "N/A")</h5>
+       
+        <a href="#" class="btn btn-primary btn-birthday">See Profile</a>
+    </div>
+</div>
+
+
+<style>
+    #vmm{
+        color :red;
+    }
+
+    #mmm {
+        color: greenyellow;
+    }
+
+    #mo {
+        color: burlywood;
+        border: 2px solid gold;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+        background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+    }
+
+        #mo:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+
+    .card-img-top {
+        height: 200px;
+        object-fit: cover;
+        border-bottom: 2px solid gold;
+    }
+
+    .card-img-overlay {
+          background: rgba(255, 255, 255, 0.8);
+        padding: 10px;
+        border-radius: 0 0 15px 15px;
+    }
+
+    .card-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #333;
+        text-shadow: 1px 1px 2px #fff;
+    }
+
+    .card-text {
+        font-size: 1rem;
+        color: #666;
+    }
+
+    .btn-birthday {
+        background-color: #f06c64;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 1rem;
+        margin-top: 10px;
+        transition: 0.3s;
+    }
+
+        .btn-birthday:hover {
+            background-color: #ff9a9e;
+            color: #fff;
+        }
+
+    .birthday-card {
+        background-image: url('/images/your-birthday-background.jpg'); /* Replace with your birthday background image */
+        background-size: cover;
+    }
+</style>

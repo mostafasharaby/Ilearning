@@ -1,0 +1,39 @@
+﻿@model List<Employee>
+@{
+    ViewData["Title"] = "indexAjax";
+    Layout = "_AdvancedLayout1";
+}
+
+
+<div id="EmployeeID" style="border: 1px solid black; color:black; background-color:white; padding: 10px; margin-top: 20px;">
+    This is Names of Employees
+</div>
+<table class="table table-bordered table-hover" style="background-color :lightgray">
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td><a href="#" onclick="GetData(@item.ID); return false;">@item.Name</a></td>
+        </tr>
+    }
+</table>
+
+<a href="/Employee/New">New Employee</a>
+
+<div id="EmployeeID"> This is Names of Employees</div>
+
+<script>
+    function GetData(EmployeeID) {
+        console.log(EmployeeID);
+        event.preventDefault();
+        $.ajax({
+            url: "/Employee/DetailsAjax/" + EmployeeID,
+            success: function (result) {
+                console.log(result);
+                document.getElementById("EmployeeID").innerHTML = result;
+            }
+
+        });
+    }
+</script>
+
+<partial name="_ScriptPartial" />

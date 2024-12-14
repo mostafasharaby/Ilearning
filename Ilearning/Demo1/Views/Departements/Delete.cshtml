@@ -1,0 +1,38 @@
+﻿@model Demo1.Models.Departement
+
+@{
+    ViewData["Title"] = "Delete Department";
+}
+
+<div class="container mt-4">
+    <h2 class="text-center text-danger">@ViewData["Title"]</h2>
+
+    <h4 class="text-center text-warning">Are you sure you want to delete this department?</h4>
+
+    <div class="card mt-4">
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-3 font-weight-bold">
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+                <dt class="col-sm-3 font-weight-bold">
+                    @Html.DisplayNameFor(model => model.Manager)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Manager)
+                </dd>
+            </dl>
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <button type="submit" class="btn btn-danger">Delete</button>
+            <a asp-action="Index" class="btn btn-secondary ml-2">Cancel</a>
+        </form>
+    </div>
+</div>
