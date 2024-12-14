@@ -15,7 +15,7 @@ namespace Demo1.Controllers
     {
 
         /// <summary>
-        /// Data entered by the user in the registration form (view) is captured by the RegisterUserViewModel.
+        /// Data entered By the user in the registration form (view) is captured by the RegisterUserViewModel.
         ///This data is then transferred to an instance of AppUser to create a new user in the system.
         /// This mapping process allows you to control and validate the input data before it is used to create the domain model.
         /// /* https://chatgpt.com/share/235d6393-f3a0-4000-a8cf-8cbc3f080796 */
