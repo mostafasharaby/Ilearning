@@ -55,9 +55,25 @@ To run this project locally, ensure the following tools are installed:
 - **SQL Server** (for database management)
 - **Visual Studio 2022** (or any compatible IDE) for running and debugging the project
 
+
+
+#### **Usage**
+- Detailed steps on how users and admins can interact with the system.
+- Guide for accessing course features, admin functionalities, and progress tracking.
+
+#### **Contributing**
+- Clear guidelines on how to contribute, fork the repo, and submit a pull request.
+- Encourages community involvement with easy-to-follow steps for contributing.
+
+#### **License**
+- Added **MIT License** information for transparency and to indicate the licensing of the project.
+
+
+
 ### Installation
 
 #### Clone the Repository
 ```bash
 git clone https://github.com/mostafasharaby/iLearning.git
 cd iLearning
+
